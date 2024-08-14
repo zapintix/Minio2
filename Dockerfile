@@ -1,16 +1,3 @@
-# Используем официальный образ MinIO
-FROM minio/minio:latest
-
-# Задаем директорию для хранения данных
-VOLUME /data
-
-# Задаем переменные окружения для MinIO
-ENV MINIO_ROOT_USER=admin
-ENV MINIO_ROOT_PASSWORD=password
-
-# Открываем порты для доступа
-EXPOSE 9000
-EXPOSE 9001
-
-# Команда запуска MinIO
-CMD ["minio", "server", "/data", "--address", ":9000", "--console-address", ":9001"]
+FROM nginx:stable-alpine-slim
+COPY minio-console.conf.template /etc/nginx/templates/
+RUN rm /etc/nginx/conf.d/default.conf /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
