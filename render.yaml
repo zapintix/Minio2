@@ -1,11 +1,17 @@
 services:
-- type: web
-  name: minio-server
-  runtime: image
-  image:
-    url: docker.io/minio/minio:latest
-  dockerCommand: minio server /data
-  autoDeploy: false
-  disk:
-    name: data
-    mountPath: /data
+  - type: web
+    name: minio-server
+    runtime: docker  # Указание среды выполнения (docker)
+    repo: https://github.com/zapintix/Minio2
+    branch: main
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: MINIO_ROOT_USER
+        value: admin
+      - key: MINIO_ROOT_PASSWORD
+        value: password
+      - key: PORT
+        value: "9000"  # Render автоматически задает переменную PORT
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /minio/health/live
