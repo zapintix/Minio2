@@ -13,5 +13,4 @@ EXPOSE 9000
 EXPOSE 9001
 
 # Команда запуска MinIO
-CMD ["minio", "server", "/data", "--console-address", ":9000"]
-
+CMD ["minio", "server", "/data", "--address", ":9000", "--console-address", ":9001"]
