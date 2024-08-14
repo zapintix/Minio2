@@ -1,2 +1,3 @@
 FROM minio/minio:latest
-CMD ["minio", "server", "--console-address", ":9001", "--address", ":9000"]
+
+CMD ["minio", "server", "/data", "--console-address", ":9001", "--address", ":9000"]

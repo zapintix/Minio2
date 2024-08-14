@@ -11,9 +11,9 @@ services:
       - key: MINIO_ROOT_PASSWORD
         value: password
       - key: PORT
-        value: "9000"  # Render автоматически задает переменную PORT
+        value: "9000"
       - key: CONSOLE_PORT
-        value: "9001"  # Порт для консоли MinIO
+        value: "9001"
     plan: free
     autoDeploy: true
     healthCheckPath: /minio/health/live
