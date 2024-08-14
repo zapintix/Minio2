@@ -1,5 +1,5 @@
 services:
-  - type: web_service
+  - type: service
     name: minio-server
     env: docker
     repo: https://github.com/zapintix/Minio2
@@ -10,11 +10,9 @@ services:
         value: admin
       - key: MINIO_ROOT_PASSWORD
         value: password
-    healthCheckPath: /minio/health/live
-    autoDeploy: true
     plan: free
+    autoDeploy: true
+    healthCheckPath: /minio/health/live
     ports:
-      - protocol: tcp
-        port: 9000
-      - protocol: tcp
-        port: 9001
+      - port: 9000
+      - port: 9001
