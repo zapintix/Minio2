@@ -10,9 +10,8 @@ services:
         value: admin
       - key: MINIO_ROOT_PASSWORD
         value: password
+      - key: PORT
+        value: "9000"  # Render автоматически задает переменную PORT
     plan: free
     autoDeploy: true
     healthCheckPath: /minio/health/live
-    ports:
-      - port: 9000
-      - port: 9001
