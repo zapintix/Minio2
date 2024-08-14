@@ -1,21 +1,11 @@
 services:
 - type: web
   name: minio-server
-  healthCheckPath: /minio/health/live
   runtime: image
   image:
     url: docker.io/minio/minio:latest
-  dockerCommand: minio server /data --console-address ":9001"
+  dockerCommand: minio server /data
   autoDeploy: false
   disk:
     name: data
     mountPath: /data
-  envVars:
-  - key: MINIO_ROOT_USER
-    generateValue: true
-  - key: MINIO_ROOT_PASSWORD
-    generateValue: true
-  - key: CONSOLE_PORT
-    value: 9001
-  - key: MINIO_BROWSER
-    value: "on"
