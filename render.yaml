@@ -1,7 +1,7 @@
 services:
   - type: web
     name: minio-server
-    runtime: docker  # Указание среды выполнения (docker)
+    runtime: docker
     repo: https://github.com/zapintix/Minio2
     branch: main
     dockerfilePath: Dockerfile
@@ -12,6 +12,8 @@ services:
         value: password
       - key: PORT
         value: "9000"  # Render автоматически задает переменную PORT
+      - key: CONSOLE_PORT
+        value: "9001"  # Порт для консоли MinIO
     plan: free
     autoDeploy: true
     healthCheckPath: /minio/health/live
