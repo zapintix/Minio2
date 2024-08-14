@@ -1,0 +1,20 @@
+services:
+  - type: web_service
+    name: minio-server
+    env: docker
+    repo: https://github.com/ваш_репозиторий/minio.git
+    branch: main
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: MINIO_ROOT_USER
+        value: admin
+      - key: MINIO_ROOT_PASSWORD
+        value: password
+    healthCheckPath: /minio/health/live
+    autoDeploy: true
+    plan: free
+    ports:
+      - protocol: tcp
+        port: 9000
+      - protocol: tcp
+        port: 9001
