@@ -1,5 +1,5 @@
 services:
-  - type: service
+  - type: web
     name: minio-server
     env: docker
     repo: https://github.com/zapintix/Minio2
