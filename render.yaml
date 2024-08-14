@@ -2,7 +2,7 @@ services:
   - type: web_service
     name: minio-server
     env: docker
-    repo: https://github.com/ваш_репозиторий/minio.git
+    repo: https://github.com/zapintix/Minio2
     branch: main
     dockerfilePath: Dockerfile
     envVars:
